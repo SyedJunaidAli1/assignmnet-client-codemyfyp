@@ -3,6 +3,11 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import api from "@/app/lib/api";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Label } from "@/components/ui/label";
+import Link from "next/link";
 
 export default function RegisterPage() {
   const router = useRouter();
@@ -32,7 +37,7 @@ export default function RegisterPage() {
 
       await api.post("/auth/register", form);
 
-      router.push("/login");
+      router.push("/");
     } catch (err: any) {
       setError(err.response?.data?.message || "Registration failed");
     } finally {
@@ -41,57 +46,61 @@ export default function RegisterPage() {
   };
 
   return (
-    <div className="flex min-h-screen items-center justify-center  p-4">
-      <div className="w-full max-w-md rounded-xl p-6 shadow-lg">
-        <h1 className="mb-6 text-2xl font-semibold text-center">
-          Create Account
-        </h1>
+    <div className="flex min-h-screen items-center justify-center bg-muted p-4">
+      <Card className="w-full max-w-md">
+        <CardHeader>
+          <CardTitle className="text-center text-2xl">Create Account</CardTitle>
+        </CardHeader>
 
-        <form onSubmit={handleSubmit} className="space-y-4">
-          <input
-            name="name"
-            placeholder="Full Name"
-            onChange={handleChange}
-            required
-            className="w-full rounded-md border p-3"
-          />
+        <CardContent>
+          <form onSubmit={handleSubmit} className="space-y-4">
+            <div className="space-y-2">
+              <Label>Full Name</Label>
+              <Input
+                name="name"
+                placeholder="Enter your name"
+                onChange={handleChange}
+                required
+              />
+            </div>
 
-          <input
-            name="email"
-            type="email"
-            placeholder="Email"
-            onChange={handleChange}
-            required
-            className="w-full rounded-md border p-3"
-          />
+            <div className="space-y-2">
+              <Label>Email</Label>
+              <Input
+                type="email"
+                name="email"
+                placeholder="Enter your email"
+                onChange={handleChange}
+                required
+              />
+            </div>
 
-          <input
-            name="password"
-            type="password"
-            placeholder="Password"
-            onChange={handleChange}
-            required
-            className="w-full rounded-md border p-3"
-          />
+            <div className="space-y-2">
+              <Label>Password</Label>
+              <Input
+                type="password"
+                name="password"
+                placeholder="Enter password"
+                onChange={handleChange}
+                required
+              />
+            </div>
 
-          {error && <p className="text-sm text-red-500">{error}</p>}
+            {error && <p className="text-sm text-red-500">{error}</p>}
 
-          <button
-            type="submit"
-            disabled={loading}
-            className="w-full rounded-md bg-black text-white py-3 hover:bg-gray-800 transition"
-          >
-            {loading ? "Creating..." : "Register"}
-          </button>
-        </form>
+            <Button className="w-full" disabled={loading}>
+              {loading ? "Creating..." : "Register"}
+            </Button>
+          </form>
 
-        <p className="mt-4 text-center text-sm">
-          Already have an account?{" "}
-          <a href="/login" className="text-blue-600">
-            Login
-          </a>
-        </p>
-      </div>
+          <p className="mt-4 text-center text-sm">
+            Already have an account?{" "}
+            <Link href="/login" className="text-primary">
+              Login
+            </Link>
+          </p>
+        </CardContent>
+      </Card>
     </div>
   );
 }
