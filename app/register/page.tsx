@@ -31,6 +31,8 @@ export default function RegisterPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
+    console.log("submit clicked");
+
     try {
       setLoading(true);
       setError("");
@@ -88,7 +90,7 @@ export default function RegisterPage() {
 
             {error && <p className="text-sm text-red-500">{error}</p>}
 
-            <Button className="w-full" disabled={loading}>
+            <Button type="submit" className="w-full" disabled={loading}>
               {loading ? "Creating..." : "Register"}
             </Button>
           </form>
