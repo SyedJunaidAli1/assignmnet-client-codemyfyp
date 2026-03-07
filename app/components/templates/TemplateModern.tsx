@@ -65,7 +65,6 @@ export default function TemplateModern({ biodata }: any) {
         <p>{f.familyType}</p>
       </div>
 
-      {/* Education */}
       {/* Education & Profession */}
       <div className="mt-6">
         <h2 className="font-semibold border-b pb-1 mb-3">
@@ -74,19 +73,19 @@ export default function TemplateModern({ biodata }: any) {
 
         <div className="grid grid-cols-2 gap-y-2 text-sm">
           <p className="text-gray-600">Qualification</p>
-          <p>{biodata.educationProfession?.highestQualification}</p>
+          <p>{e.highestQualification}</p>
 
           <p className="text-gray-600">College</p>
-          <p>{biodata.educationProfession?.college}</p>
+          <p>{e.college}</p>
 
           <p className="text-gray-600">Profession</p>
-          <p>{biodata.educationProfession?.profession}</p>
+          <p>{e.profession}</p>
 
           <p className="text-gray-600">Company</p>
-          <p>{biodata.educationProfession?.company}</p>
+          <p>{e.company}</p>
 
           <p className="text-gray-600">Income</p>
-          <p>{biodata.educationProfession?.income}</p>
+          <p>{e.income}</p>
         </div>
       </div>
     </div>
