@@ -66,20 +66,27 @@ export default function TemplateModern({ biodata }: any) {
       </div>
 
       {/* Education */}
-      <div>
-        <h2 className="font-semibold mb-2 border-b pb-1">
+      {/* Education & Profession */}
+      <div className="mt-6">
+        <h2 className="font-semibold border-b pb-1 mb-3">
           Education & Profession
         </h2>
 
-        <div className="grid grid-cols-2 gap-2 text-sm">
-          <p className="text-gray-500">Qualification</p>
-          <p>{e.highestQualification}</p>
+        <div className="grid grid-cols-2 gap-y-2 text-sm">
+          <p className="text-gray-600">Qualification</p>
+          <p>{biodata.educationProfession?.highestQualification}</p>
 
-          <p className="text-gray-500">Profession</p>
-          <p>{e.profession}</p>
+          <p className="text-gray-600">College</p>
+          <p>{biodata.educationProfession?.college}</p>
 
-          <p className="text-gray-500">Company</p>
-          <p>{e.company}</p>
+          <p className="text-gray-600">Profession</p>
+          <p>{biodata.educationProfession?.profession}</p>
+
+          <p className="text-gray-600">Company</p>
+          <p>{biodata.educationProfession?.company}</p>
+
+          <p className="text-gray-600">Income</p>
+          <p>{biodata.educationProfession?.income}</p>
         </div>
       </div>
     </div>
