@@ -1,12 +1,12 @@
 "use client";
 
 import { useState } from "react";
-import PersonalDetails from "@/components/biodata-form/PersonalDetails";
-import FamilyDetails from "@/components/biodata-form/FamilyDetails";
-import EducationDetails from "@/components/biodata-form/EducationDetails";
-import HoroscopeSection from "@/components/biodata-form/HoroscopeSection";
-import PhotoUpload from "@/components/biodata-form/PhotoUpload";
-import BiodataPreview from "@/components/preview/BiodataPreview";
+import PersonalDetails from "@/app/components/biodata-form/PersonalDetails";
+import FamilyDetails from "@/app/components/biodata-form/FamilyDetails";
+import EducationDetails from "@/app/components/biodata-form/EducationDetails";
+import HoroscopeSection from "@/app/components/biodata-form/HoroscopeSection";
+import PhotoUpload from "@/app/components/biodata-form/PhotoUpload";
+import BiodataPreview from "@/app/components/preview/BiodataPreview";
 
 export default function EditorPage() {
   const [biodata, setBiodata] = useState({
