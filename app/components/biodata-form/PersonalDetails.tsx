@@ -48,6 +48,31 @@ export default function PersonalDetails({ biodata, setBiodata }: any) {
         <Label>Age</Label>
         <Input name="age" value={biodata.personalDetails.age || ""} readOnly />
       </div>
+
+      <div>
+        <Label>Height</Label>
+        <Input name="height" onChange={handleChange} />
+      </div>
+
+      <div>
+        <Label>Religion</Label>
+        <Input name="religion" onChange={handleChange} />
+      </div>
+
+      <div>
+        <Label>Caste</Label>
+        <Input name="caste" onChange={handleChange} />
+      </div>
+
+      <div>
+        <Label>Location</Label>
+        <Input name="location" onChange={handleChange} />
+      </div>
+
+      <div>
+        <Label>Contact Number</Label>
+        <Input name="contact" onChange={handleChange} />
+      </div>
     </div>
   );
 }

@@ -7,6 +7,11 @@ export default function BiodataPreview({ biodata }: any) {
 
       <p>Name: {biodata.personalDetails.fullName}</p>
       <p>Age: {biodata.personalDetails.age}</p>
+      <p>Height: {biodata.personalDetails.height}</p>
+      <p>Religion: {biodata.personalDetails.religion}</p>
+      <p>Caste: {biodata.personalDetails.caste}</p>
+      <p>Location: {biodata.personalDetails.location}</p>
+      <p>Contact Number: {biodata.personalDetails.contact}</p>
     </div>
   );
 }
