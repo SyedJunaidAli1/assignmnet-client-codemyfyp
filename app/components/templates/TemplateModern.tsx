@@ -6,6 +6,7 @@ export default function TemplateModern({ biodata }: any) {
   const p = biodata.personalDetails;
   const f = biodata.familyDetails || {};
   const e = biodata.educationProfession || {};
+  const h = biodata.horoscope || {};
 
   return (
     <div className="max-w-full mx-auto rounded-xl shadow-lg p-6 space-y-6">
@@ -87,6 +88,17 @@ export default function TemplateModern({ biodata }: any) {
           <p className="text-gray-600">Income</p>
           <p>{e.income}</p>
         </div>
+      </div>
+      <h2 className="font-semibold mb-2 border-b pb-1">Horoscope</h2>
+      <div className="grid grid-cols-2 gap-2 text-sm">
+        <p className="text-gray-500">Rashi</p>
+        <p>{h.rashi}</p>
+
+        <p className="text-gray-500">Nakshatra</p>
+        <p>{h.nakshatra}</p>
+
+        <p className="text-gray-500">Manglik</p>
+        <p>{h.manglik}</p>
       </div>
     </div>
   );

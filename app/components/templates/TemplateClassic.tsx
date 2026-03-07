@@ -6,6 +6,7 @@ export default function TemplateClassic({ biodata }: any) {
   const p = biodata.personalDetails || {};
   const f = biodata.familyDetails || {};
   const e = biodata.educationProfession || {};
+  const h = biodata.horoscope || {};
 
   return (
     <div className="max-w-2xl mx-auto border border-black p-8">
@@ -131,6 +132,28 @@ export default function TemplateClassic({ biodata }: any) {
           <tr>
             <td className="py-1 font-semibold">Income</td>
             <td>{e.income}</td>
+          </tr>
+        </tbody>
+      </table>
+
+      {/* Horoscope */}
+      <h2 className="font-bold text-lg underline mb-3 mt-6">Horoscope</h2>
+
+      <table className="w-full text-sm">
+        <tbody>
+          <tr>
+            <td className="py-1 w-40 font-semibold">Rashi</td>
+            <td>{h.rashi}</td>
+          </tr>
+
+          <tr>
+            <td className="py-1 font-semibold">Nakshatra</td>
+            <td>{h.nakshatra}</td>
+          </tr>
+
+          <tr>
+            <td className="py-1 font-semibold">Manglik</td>
+            <td>{h.manglik}</td>
           </tr>
         </tbody>
       </table>
