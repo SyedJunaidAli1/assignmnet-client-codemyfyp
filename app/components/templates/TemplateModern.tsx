@@ -46,19 +46,23 @@ export default function TemplateModern({ biodata }: any) {
       </div>
 
       {/* Family Details */}
-      <div>
-        <h2 className="font-semibold mb-2 border-b pb-1">Family Details</h2>
+      <h2 className="font-semibold mb-2 border-b pb-1">Family Details</h2>
 
-        <div className="grid grid-cols-2 gap-2 text-sm">
-          <p className="text-gray-500">Father</p>
-          <p>{f.fatherName}</p>
+      <div className="grid grid-cols-2 gap-2 text-sm">
+        <p className="text-gray-500">Father</p>
+        <p>{f.fatherName}</p>
 
-          <p className="text-gray-500">Mother</p>
-          <p>{f.motherName}</p>
+        <p className="text-gray-500">Occupation</p>
+        <p>{f.fatherOccupation}</p>
 
-          <p className="text-gray-500">Siblings</p>
-          <p>{f.siblings}</p>
-        </div>
+        <p className="text-gray-500">Mother</p>
+        <p>{f.motherName}</p>
+
+        <p className="text-gray-500">Siblings</p>
+        <p>{f.siblings}</p>
+
+        <p className="text-gray-500">Family Type</p>
+        <p>{f.familyType}</p>
       </div>
 
       {/* Education */}
