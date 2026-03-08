@@ -15,6 +15,8 @@ export default function TemplateModern({ biodata }: any) {
         {biodata.profilePhoto && (
           <Image
             src={biodata.profilePhoto}
+            width={112}
+            height={112}
             alt="photo"
             className="w-28 h-28 rounded-full object-cover mx-auto mb-3"
           />
