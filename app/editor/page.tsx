@@ -7,6 +7,8 @@ import EducationDetails from "@/app/components/biodata-form/EducationDetails";
 import HoroscopeSection from "@/app/components/biodata-form/HoroscopeSection";
 import PhotoUpload from "@/app/components/biodata-form/PhotoUpload";
 import BiodataPreview from "@/app/components/preview/BiodataPreview";
+import { Button } from "@/components/ui/button";
+import api from "@/app/lib/api";
 import {
   Select,
   SelectContent,
@@ -33,6 +35,19 @@ export default function EditorPage() {
     profilePhoto: "",
     template: "classic",
   });
+
+  const handleSave = async () => {
+    try {
+      const res = await api.post("/biodata", biodata);
+
+      console.log(res.data);
+
+      alert("Biodata saved successfully!");
+    } catch (error) {
+      console.log(error.response?.data);
+      alert("Failed to save biodata");
+    }
+  };
 
   return (
     <div className="flex flex-col lg:flex-row min-h-screen">
@@ -66,6 +81,9 @@ export default function EditorPage() {
         <EducationDetails biodata={biodata} setBiodata={setBiodata} />
         <HoroscopeSection biodata={biodata} setBiodata={setBiodata} />
         <PhotoUpload biodata={biodata} setBiodata={setBiodata} />
+        <Button onClick={handleSave} className="w-full mt-4">
+          Save Biodata
+        </Button>
       </div>
 
       {/* RIGHT SIDE PREVIEW */}
