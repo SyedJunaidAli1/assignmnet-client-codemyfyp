@@ -35,7 +35,7 @@ export default function EditorPage() {
     profilePhoto: "",
     template: "classic",
   });
-  
+
   const handleSave = async () => {
     try {
       if (biodata._id) {
@@ -57,8 +57,6 @@ export default function EditorPage() {
         const res = await api.get("/biodata/me");
 
         setBiodata(res.data);
-
-        console.log("Loaded biodata:", res.data);
       } catch (error) {
         console.log("No biodata found");
       }
@@ -100,7 +98,7 @@ export default function EditorPage() {
         <HoroscopeSection biodata={biodata} setBiodata={setBiodata} />
         <PhotoUpload biodata={biodata} setBiodata={setBiodata} />
         <Button onClick={handleSave} className="w-full mt-4">
-          Save Biodata
+          {biodata._id ? "Update Biodata" : "Save Biodata"}
         </Button>
       </div>
 
