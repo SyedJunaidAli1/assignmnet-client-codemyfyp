@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import PersonalDetails from "@/app/components/biodata-form/PersonalDetails";
 import FamilyDetails from "@/app/components/biodata-form/FamilyDetails";
 import EducationDetails from "@/app/components/biodata-form/EducationDetails";
@@ -16,6 +16,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { useReactToPrint } from "react-to-print";
 
 export default function EditorPage() {
   const [biodata, setBiodata] = useState({
@@ -65,6 +66,13 @@ export default function EditorPage() {
     fetchBiodata();
   }, []);
 
+  const previewRef = useRef(null);
+
+  const handleDownload = useReactToPrint({
+    contentRef: previewRef,
+    documentTitle: "Bio",
+  });
+
   return (
     <div className="flex flex-col lg:flex-row min-h-screen">
       {/* LEFT SIDE FORM */}
@@ -97,14 +105,21 @@ export default function EditorPage() {
         <EducationDetails biodata={biodata} setBiodata={setBiodata} />
         <HoroscopeSection biodata={biodata} setBiodata={setBiodata} />
         <PhotoUpload biodata={biodata} setBiodata={setBiodata} />
-        <Button onClick={handleSave} className="w-full mt-4">
+        <Button onClick={handleSave} className="w-full">
           {biodata._id ? "Update Biodata" : "Save Biodata"}
+        </Button>
+        <Button
+          onClick={handleDownload}
+          variant="outline"
+          className="w-full mt-2"
+        >
+          Download PDF
         </Button>
       </div>
 
       {/* RIGHT SIDE PREVIEW */}
       <div className="w-full lg:w-1/2 bg-muted p-6">
-        <BiodataPreview biodata={biodata} />
+        <BiodataPreview biodata={biodata} previewRef={previewRef} />
       </div>
     </div>
   );

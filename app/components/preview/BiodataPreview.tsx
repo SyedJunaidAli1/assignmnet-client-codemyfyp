@@ -1,11 +1,16 @@
-import TemplateClassic from "@/app/components/templates/TemplateClassic";
-import TemplateModern from "@/app/components/templates/TemplateModern";
+"use client";
 
-export default function BiodataPreview({ biodata }: any) {
+import TemplateClassic from "../templates/TemplateClassic";
+import TemplateModern from "../templates/TemplateModern";
 
-  if (biodata.template === "modern") {
-    return <TemplateModern biodata={biodata} />;
-  }
-
-  return <TemplateClassic biodata={biodata} />;
+export default function BiodataPreview({ biodata, previewRef }: any) {
+  return (
+    <div ref={previewRef}>
+      {biodata.template === "modern" ? (
+        <TemplateModern biodata={biodata} />
+      ) : (
+        <TemplateClassic biodata={biodata} />
+      )}
+    </div>
+  );
 }
