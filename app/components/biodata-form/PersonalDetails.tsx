@@ -36,12 +36,21 @@ export default function PersonalDetails({ biodata, setBiodata }: any) {
 
       <div>
         <Label>Full Name</Label>
-        <Input name="fullName" onChange={handleChange} />
+        <Input
+          name="fullName"
+          value={biodata.personalDetails.fullName || ""}
+          onChange={handleChange}
+        />
       </div>
 
       <div>
         <Label>Date of Birth</Label>
-        <Input type="date" name="dob" onChange={handleChange} />
+        <Input
+          type="date"
+          name="dob"
+          value={biodata.personalDetails.dob || ""}
+          onChange={handleChange}
+        />
       </div>
 
       <div>
@@ -51,27 +60,47 @@ export default function PersonalDetails({ biodata, setBiodata }: any) {
 
       <div>
         <Label>Height</Label>
-        <Input name="height" onChange={handleChange} />
+        <Input
+          name="height"
+          value={biodata.personalDetails.height || ""}
+          onChange={handleChange}
+        />
       </div>
 
       <div>
         <Label>Religion</Label>
-        <Input name="religion" onChange={handleChange} />
+        <Input
+          name="religion"
+          value={biodata.personalDetails.religion || ""}
+          onChange={handleChange}
+        />
       </div>
 
       <div>
         <Label>Caste</Label>
-        <Input name="caste" onChange={handleChange} />
+        <Input
+          name="caste"
+          value={biodata.personalDetails.caste || ""}
+          onChange={handleChange}
+        />
       </div>
 
       <div>
         <Label>Location</Label>
-        <Input name="location" onChange={handleChange} />
+        <Input
+          name="location"
+          value={biodata.personalDetails.location || ""}
+          onChange={handleChange}
+        />
       </div>
 
       <div>
         <Label>Contact Number</Label>
-        <Input name="contact" onChange={handleChange} />
+        <Input
+          name="contact"
+          value={biodata.personalDetails.contact || ""}
+          onChange={handleChange}
+        />
       </div>
     </div>
   );

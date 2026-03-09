@@ -11,6 +11,7 @@ import {
 } from "@/components/ui/select";
 
 export default function HoroscopeSection({ biodata, setBiodata }: any) {
+
   const handleChange = (e: any) => {
     const { name, value } = e.target;
 
@@ -40,7 +41,7 @@ export default function HoroscopeSection({ biodata, setBiodata }: any) {
       {/* Rashi */}
       <div>
         <Label>Rashi</Label>
-        <Input name="rashi" placeholder="Enter rashi" onChange={handleChange} />
+        <Input name="rashi" placeholder="Enter rashi"  onChange={handleChange} />
       </div>
 
       {/* Nakshatra */}

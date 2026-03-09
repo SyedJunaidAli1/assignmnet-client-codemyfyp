@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import PersonalDetails from "@/app/components/biodata-form/PersonalDetails";
 import FamilyDetails from "@/app/components/biodata-form/FamilyDetails";
 import EducationDetails from "@/app/components/biodata-form/EducationDetails";
@@ -35,19 +35,37 @@ export default function EditorPage() {
     profilePhoto: "",
     template: "classic",
   });
-
+  
   const handleSave = async () => {
     try {
-      const res = await api.post("/biodata", biodata);
-
-      console.log(res.data);
+      if (biodata._id) {
+        await api.put(`/biodata/${biodata._id}`, biodata);
+      } else {
+        await api.post("/biodata", biodata);
+      }
 
       alert("Biodata saved successfully!");
     } catch (error) {
-      console.log(error.response?.data);
+      console.error(error);
       alert("Failed to save biodata");
     }
   };
+
+  useEffect(() => {
+    const fetchBiodata = async () => {
+      try {
+        const res = await api.get("/biodata/me");
+
+        setBiodata(res.data);
+
+        console.log("Loaded biodata:", res.data);
+      } catch (error) {
+        console.log("No biodata found");
+      }
+    };
+
+    fetchBiodata();
+  }, []);
 
   return (
     <div className="flex flex-col lg:flex-row min-h-screen">
