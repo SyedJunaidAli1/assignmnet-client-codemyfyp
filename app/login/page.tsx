@@ -38,7 +38,7 @@ export default function LoginPage() {
 
       setToken(res.data.token);
 
-      router.push("/editor");
+      router.push("/dashboard");
     } catch (err: any) {
       setError(err.response?.data?.message || "Login failed");
     } finally {
